@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link, Outlet } from 'react-router-dom'
 import * as classes from './App.module.scss'
 
 const App = () => {
@@ -8,6 +9,8 @@ const App = () => {
 
 	return (
 		<div>
+			<Link to="/about">About</Link>
+			<Link to="/shop">Shop</Link>
 			<h1>{counter}</h1>
 			<button
 				className={classes.button}
@@ -16,6 +19,7 @@ const App = () => {
 			>
 				Increment
 			</button>
+			<Outlet />
 		</div>
 	)
 }

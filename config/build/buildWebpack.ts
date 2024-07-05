@@ -1,7 +1,7 @@
 import webpack from 'webpack'
 import { buildDevServer } from './buildDevServer'
 import { buildLoaders } from './buildLoaders'
-import { buildPluggins } from './buildPlaggins'
+import { buildPlugins } from './buildPlugins'
 import { buildResolvers } from './buildResolvers'
 import { BuildOptions } from './types/types'
 
@@ -20,7 +20,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
 			filename: '[name].[contenthash].bundle.js',
 			clean: true,
 		},
-		plugins: buildPluggins(options),
+		plugins: buildPlugins(options),
 		devtool: isDev && 'inline-source-map',
 		devServer: isDev ? buildDevServer(options) : undefined,
 	}
