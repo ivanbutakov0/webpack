@@ -1,3 +1,4 @@
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { Configuration, DefinePlugin, ProgressPlugin } from 'webpack'
@@ -17,6 +18,8 @@ export function buildPlugins(options: BuildOptions): Configuration['plugins'] {
 
 	if (isDev) {
 		plugins.push(new ProgressPlugin())
+		/* Выносит проверку типов в отдельный процесс */
+		plugins.push(new ForkTsCheckerWebpackPlugin())
 	}
 
 	if (!isDev) {
