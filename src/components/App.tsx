@@ -1,3 +1,5 @@
+import Cloud from '@/assets/cloud.svg'
+import image from '@/assets/image.png'
 import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import * as classes from './App.module.scss'
@@ -9,6 +11,12 @@ const App = () => {
 
 	return (
 		<div>
+			<div>
+				<img src={image} alt="logo" width={20} height={20} />
+			</div>
+			<div>
+				<Cloud width={20} height={20} />
+			</div>
 			<Link to="/about">About</Link>
 			<Link to="/shop">Shop</Link>
 			<h1>{counter}</h1>

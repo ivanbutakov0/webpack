@@ -32,5 +32,32 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
 		exclude: /node_modules/,
 	}
 
-	return [scssLoader, tsLoader]
+	const assetLoader = {
+		test: /\.(png|jpg|jpeg|gif)$/i,
+		type: 'asset/resource',
+	}
+
+	const svgLoader = {
+		test: /\.svg$/i,
+		use: [
+			{
+				loader: '@svgr/webpack',
+				options: {
+					icon: true,
+					svgoConfig: {
+						plugins: [
+							{
+								name: 'convertColors',
+								params: {
+									currentColor: true,
+								},
+							},
+						],
+					},
+				},
+			},
+		],
+	}
+
+	return [scssLoader, tsLoader, assetLoader, svgLoader]
 }
