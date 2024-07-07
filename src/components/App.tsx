@@ -18,7 +18,7 @@ const App = () => {
 	}
 
 	return (
-		<div>
+		<div data-testid="App.DataTestId">
 			<h1>PLATFORM={__PLATFORM__}</h1>
 			<div>
 				<img src={image} alt="logo" width={20} height={20} />
